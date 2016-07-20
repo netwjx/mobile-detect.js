@@ -272,3 +272,74 @@ xdescribe("Feeding w/ ualist", function () {
         }
     }
 });
+
+
+describe("Other", function(){
+    it("should be Apple iPad tablet", function(){
+        var aut = new MobileDetect("Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10", -1);
+        expect(aut.tablet()).toBe("iPad");
+        expect(aut.phone()).toBeNull();
+    })
+    
+
+    it("should be Xiaomi 4 phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.4.4; zh-CN; MI 4LTE Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/10.10.8.822 U3/0.8.0 Mobile Safari/534.30", -1);
+        expect(aut.phone()).toBe("Xiaomi");
+        expect(aut.tablet()).toBeNull();
+    })
+    it("should be Xiaomi HM phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; 2013022 Build/HM2013022) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.1.1", -1);
+        expect(aut.phone()).toBe("Xiaomi");
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be Xiaomi HM Note phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; HM NOTE 1LTETD Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 XiaoMi/MiuiBrowser/2.0.1", -1);
+        expect(aut.phone()).toBe("Xiaomi");
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be Xiaomi Pad tablet", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; Android 4.4.4; MI PAD Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Safari/537.36 Html5Plus/1.0", -1);
+        expect(aut.tablet()).toBe("Xiaomi");
+        expect(aut.phone()).toBeNull();
+    })
+    
+    
+    it("should be Meizu MX5 phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; Android 5.1; MX5 Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036548 Safari/537.36 MicroMessenger/6.3.22.821 NetType/WIFI Language/zh_CN");
+        expect(aut.phone()).toBe('Meizu');
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be Meizu MX4 phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MX4 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/10.2.0.535 U3/0.8.0 Mobile Safari/534.30");
+        expect(aut.phone()).toBe('Meizu');
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be Meizu MX3 phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; M351 Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30");
+        expect(aut.phone()).toBe('Meizu');
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be Meizu MX2 phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; M040 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30");
+        expect(aut.phone()).toBe('Meizu');
+    })
+    
+    it("should be Meizu MX phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.1.1; zh-cn; M031 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30");
+        expect(aut.phone()).toBe('Meizu');
+        expect(aut.tablet()).toBeNull();
+    })
+    
+    it("should be unknown phone", function(){
+        var aut = new MobileDetect("Mozilla/5.0 (Linux; U; Android 4.4.4; zh-CN; MI XXX Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/10.10.8.822 U3/0.8.0 Mobile Safari/534.30");
+        expect(aut.mobile()).not.toBeNull();
+        expect(aut.tablet()).toBeNull();
+        
+        
+    })
+})
